@@ -7,7 +7,7 @@ paymentRoutes.use(express.json());
 
 // Post route for Creating Payment Intent
 
-paymentRoutes.post('/api/v1/create_intent', async (req, res) => {
+paymentRoutes.post('/v1/create_intent', async (req, res) => {
     const { amount, currency } = req.body;
     try {
         const paymentIntent = await stripe.paymentIntents.create({
@@ -26,7 +26,7 @@ paymentRoutes.post('/api/v1/create_intent', async (req, res) => {
 
 // Post route for Create Refund
 
-paymentRoutes.post('/api/v1/capture_intent/:id', async (req, res) => {
+paymentRoutes.post('/v1/capture_intent/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const intent = await stripe.paymentIntents.capture(id);
@@ -38,7 +38,7 @@ paymentRoutes.post('/api/v1/capture_intent/:id', async (req, res) => {
 
 // Post route for Create Refund
 
-paymentRoutes.post('/api/v1/create_refund/:id', async (req, res) => {
+paymentRoutes.post('/v1/create_refund/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const refund = await stripe.refunds.create({
@@ -52,7 +52,7 @@ paymentRoutes.post('/api/v1/create_refund/:id', async (req, res) => {
 
 // Get Route for getting list of payment intents
 
-paymentRoutes.get('/api/v1/get_intents', async (req, res) => {
+paymentRoutes.get('/v1/get_intents', async (req, res) => {
     try {
         const intents = await stripe.paymentIntents.list();
         res.status(200).json(intents.data);
