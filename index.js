@@ -7,7 +7,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use(paymentRoutes)
+app.use(paymentRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running`);
