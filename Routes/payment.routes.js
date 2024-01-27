@@ -24,7 +24,7 @@ paymentRoutes.post('/v1/create_intent', async (req, res) => {
     }
 });
 
-// Post route for Create Refund
+// Post route for Capture Intent with ID
 
 paymentRoutes.post('/v1/capture_intent/:id', async (req, res) => {
     const { id } = req.params;
@@ -36,7 +36,7 @@ paymentRoutes.post('/v1/capture_intent/:id', async (req, res) => {
     }
 });
 
-// Post route for Create Refund
+// Post route for Create Refund ID
 
 paymentRoutes.post('/v1/create_refund/:id', async (req, res) => {
     const { id } = req.params;
